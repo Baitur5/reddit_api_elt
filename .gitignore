@@ -1,6 +1,6 @@
 .env
 py_airflow/
-__pychache__/
+dags/__pychache__/
 variables.tf
 .vscode/
 .terraform/
