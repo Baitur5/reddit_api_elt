@@ -1,0 +1,12 @@
+.env
+py_airflow/
+variables.tf
+.vscode/
+.terraform/
+*.tfstate*
+plugins/
+logs/
+config/
+.terraform*
+
+
