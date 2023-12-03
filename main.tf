@@ -15,6 +15,8 @@ provider "aws" {
 
 resource "aws_redshiftserverless_namespace" "namespaces" {
   namespace_name = var.namespace_name
+  admin_username = "awsuser"
+  admin_user_password = var.password
 }
 
 resource "aws_redshiftserverless_workgroup" "subreddit" {
