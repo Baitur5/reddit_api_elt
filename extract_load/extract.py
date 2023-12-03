@@ -1,13 +1,7 @@
 import sys
-# from dotenv import load_dotenv
 import pandas as pd
 import os
-import pathlib
 import praw
-
-# script_path = pathlib.Path(__file__).parent.parent.resolve()
-# load_dotenv(dotenv_path=f'{script_path}/.env')
-# load_dotenv()
 
 CLIENT_ID =os.getenv('CLIENT_ID')
 SECRET_KEY=os.getenv('SECRET_KEY')
@@ -26,7 +20,24 @@ POST_FIELDS = [
     'created_utc'
 ]
 
+def main():
+    """
+    Extract data from reddit api and save it into the file
+    """
+    reddit = connect_to_api()
+    raw_data = extract_posts(reddit)
+    df = transform_to_dataframe(raw_data)
+    try:
+        df.to_csv('/tmp/data.csv',index=False)
+    except Exception as e:
+        print(f"Couldn't save file.Error: {e}")
+        sys.exit(1)
+        
+
 def connect_to_api():
+    """
+    Connecting to reddit api
+    """
     try:
         reddit = praw.Reddit(
             client_id=CLIENT_ID,
@@ -40,6 +51,9 @@ def connect_to_api():
 
 
 def extract_posts(reddit):
+    """
+    Get posts and their relevant data that we need
+    """
     try:
         subreddit = reddit.subreddit(SUBREDDIT)
         dict = {}
@@ -55,6 +69,9 @@ def extract_posts(reddit):
     return dict
 
 def transform_to_dataframe(dict):
+    """
+    Transform raw data into Dataframe object
+    """
     try:
         df = pd.DataFrame(dict)
         df = df.transpose()
@@ -67,16 +84,6 @@ def transform_to_dataframe(dict):
         sys.exit(1)
     return df
 
-def main():
-    reddit = connect_to_api()
-    raw_data = extract_posts(reddit)
-    df = transform_to_dataframe(raw_data)
-    # print(df[df['num_comments']=="-"])
-    try:
-        df.to_csv('/tmp/data.csv',index=False)
-    except Exception as e:
-        print(f"Couldn't save file.Error: {e}")
-        sys.exit(1)
 
 if __name__=="__main__":
     main()

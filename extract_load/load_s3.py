@@ -6,6 +6,14 @@ from dotenv import load_dotenv
 
 S3_BUCKET = os.getenv('S3_BUCKET')
 
+def main():
+    """
+    Connect to S3 bucket and upload our file
+    """
+    s3 = connect_to_s3()
+    upload_file(s3)
+    
+
 def connect_to_s3():
     try:
         s3 = boto3.resource('s3')
@@ -25,9 +33,6 @@ def upload_file(s3):
         sys.exit(1)
     
     
-def main():
-    s3 = connect_to_s3()
-    upload_file(s3)
 
 if __name__=="__main__":
     main()

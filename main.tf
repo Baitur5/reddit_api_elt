@@ -13,12 +13,14 @@ provider "aws" {
   region  = "us-east-1"
 }
 
+# Create namespace and add admin user 
 resource "aws_redshiftserverless_namespace" "namespaces" {
   namespace_name = var.namespace_name
   admin_username = "awsuser"
   admin_user_password = var.password
 }
 
+# create workgroup for namespace
 resource "aws_redshiftserverless_workgroup" "subreddit" {
   namespace_name = aws_redshiftserverless_namespace.namespaces.id
   workgroup_name = var.workgroup_name
@@ -39,9 +41,9 @@ resource "aws_s3_bucket_ownership_controls" "own_control" {
   }
 }
 
+# set bucket to private
 resource "aws_s3_bucket_acl" "acl" {
   depends_on = [aws_s3_bucket_ownership_controls.own_control]
-
   bucket = aws_s3_bucket.reddit_bucket.id
   acl    = "private"
 }
