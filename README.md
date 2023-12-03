@@ -1,8 +1,8 @@
 
 # Reddit ELT pipilene
 ------
+
 This project extracts data from a subreddit, transforms it,loads into data warehouse and creates charts.
-------
 
 ## Architecture
 ![architecture](./images/architecture.png)
