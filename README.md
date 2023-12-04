@@ -1,8 +1,7 @@
 
 # Reddit ELT pipilene
 ------
-
-This project extracts data from a subreddit, transforms it,loads into data warehouse and creates charts.
+A data pipeline that extracts Reddit data for a Google Data Studio report, focusing on a specific subreddit. Motivated by interest in the subject and a desire to enhance skills, the project includes tools like dbt, Airflow, Docker, and cloud-based storage for added complexity.
 
 ## Architecture
 ![architecture](./images/architecture.png)
@@ -17,6 +16,11 @@ This project extracts data from a subreddit, transforms it,loads into data wareh
 5. Data Transformation with [dbt](https://www.getdbt.com/)
 6. [Apache Airflow](https://airflow.apache.org/) Orchestration in [Docker](https://www.docker.com/)
 7. Visualizes transformed data with [Google Looker Studio](https://lookerstudio.google.com/)
+
+## Result
+[Link](https://lookerstudio.google.com/reporting/fdfc7645-fbee-47cc-a06f-25a40b2a61fa)
+
+
 
 ------
 ## Setup
@@ -67,15 +71,13 @@ S3_BUCKET =''
 SUBREDDIT =''
 WORKGROUP=''
 ```
-- Install python requirements:
-```bash
-pip install -r requirements.txt
-```
 - Setup airflow in docker:
 ```bash
 docker compose up airflow-init
 docker compose up
 ```
+- Open http://localhost:8080/ and trigger dag
+- [Transform data in Redshift with dbt](https://www.getdbt.com/partners/redshift)
 - Setup Google Data Looker Studio and extract data from Redshift Serverless. For some tutorials
 check [this out](https://support.google.com/looker-studio/answer/6283323?hl=en)
 
