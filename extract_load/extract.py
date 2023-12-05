@@ -10,7 +10,6 @@ TIME_FILTER = 'day'
 LIMIT = None
 
 POST_FIELDS = [
-    'url',
     'author',
     'link_flair_text',
     'title',
@@ -62,7 +61,9 @@ def extract_posts(reddit):
             s = vars(s)
             for i in POST_FIELDS:
                 data[i]=s[i]
+            data['url']='https://www.reddit.com'+s.permalink
             dict[s['id']] = data
+
     except Exception as e:
         print(f'Couldn"t extract data from api.Error: {e}')
         sys.exit(1)
