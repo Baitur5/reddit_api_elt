@@ -10,8 +10,8 @@ A data pipeline that extracts Reddit data for a Google Data Studio report, focus
 
 ## Overview 
 1. Data Extraction from [Reddit API](https://www.reddit.com/dev/api/)
-2. Data Upload to [S3](https://aws.amazon.com/s3/)
-3. To provision and manage AWS Resources with [Terraform](https://developer.hashicorp.com/terraform/intro)
+2. Managing AWS Resources with [Terraform](https://developer.hashicorp.com/terraform/intro)
+3. Data Upload to [S3](https://aws.amazon.com/s3/)
 4. Data Loading to [Redshift Serverless](https://aws.amazon.com/redshift/redshift-serverless/)
 5. Data Transformation with [dbt](https://www.getdbt.com/)
 6. [Apache Airflow](https://airflow.apache.org/) Orchestration in [Docker](https://www.docker.com/)
