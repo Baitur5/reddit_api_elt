@@ -29,7 +29,7 @@ A data pipeline that extracts Reddit data for a Google Data Studio report, focus
 git clone https://github.com/Baitur5/reddit_api_elt.git
 cd reddit_api_elt
 ```
-- Get reddip api keys from [here](https://www.reddit.com/prefs/apps)
+- Get reddit api keys from [here](https://www.reddit.com/prefs/apps)
 - You must have configured [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
 - Create **variables.tf** file in the root directory and setup the following variables:
 ```terraform
