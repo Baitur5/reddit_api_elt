@@ -28,7 +28,7 @@ create_table_if_not_exists = (
 create_temp_table = "CREATE TABLE IF NOT EXISTS staging_table (LIKE manhwa_subreddit);"
 
 # Insert data from file into our staging_table
-sql_copy_to_temp = f"COPY dev.public.staging_table FROM '{file_path}' IAM_ROLE '{IAM_ROLE}' FORMAT AS CSV DELIMITER ',' QUOTE '\"' IGNOREHEADER 1 REGION AS \'us-east-1\';"
+sql_copy_to_temp = f"COPY dev.public.staging_table FROM '{file_path}' IAM_ROLE '{IAM_ROLE}' FORMAT AS CSV DELIMITER ','  IGNOREHEADER 1 REGION AS \'us-east-1\';"
 
 # Insert into main table if not exists else update 
 merge_temp_main_tables = ("MERGE INTO manhwa_subreddit USING staging_table as  st ON manhwa_subreddit.id = st.id "

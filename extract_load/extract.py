@@ -59,9 +59,9 @@ def extract_posts(reddit):
         for s in subreddit.top(time_filter=TIME_FILTER,limit=LIMIT):
             data = {}
             s = vars(s)
+            data['url']='https://www.reddit.com'+s['permalink']
             for i in POST_FIELDS:
                 data[i]=s[i]
-            data['url']='https://www.reddit.com'+s.permalink
             dict[s['id']] = data
 
     except Exception as e:
@@ -77,7 +77,6 @@ def transform_to_dataframe(dict):
         df = pd.DataFrame(dict)
         df = df.transpose()
         df["created_utc"] = pd.to_datetime(df["created_utc"], unit="s")
-        # df = df.astype({'edited':bool})
         df['id']=df.index
         df.reset_index(drop=True,inplace=True)
     except Exception as e:
