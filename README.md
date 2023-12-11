@@ -19,6 +19,7 @@ A data pipeline that extracts Reddit data for a Google Data Studio report, focus
 
 ## Result
 [Link](https://lookerstudio.google.com/reporting/fdfc7645-fbee-47cc-a06f-25a40b2a61fa)
+![result](./images/result.png)
 
 
 
