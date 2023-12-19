@@ -71,6 +71,7 @@ IAM_ROLE =''
 S3_BUCKET =''
 SUBREDDIT =''
 WORKGROUP=''
+DBT_TABLE = ''
 ```
 - Setup airflow in docker:
 ```bash
