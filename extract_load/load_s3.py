@@ -2,7 +2,6 @@ import os
 import boto3
 from datetime import datetime
 import sys
-from dotenv import load_dotenv
 
 S3_BUCKET = os.getenv('S3_BUCKET')
 
