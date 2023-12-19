@@ -1,6 +1,7 @@
+__pycache__/
+*.py[cod]
 .env
 py_airflow/
-dags/__pychache__/
 variables.tf
 .vscode/
 .terraform/
