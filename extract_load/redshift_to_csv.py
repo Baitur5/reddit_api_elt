@@ -4,7 +4,9 @@ import boto3
 from datetime import datetime
 import sys
 from load_from_s3_to_redshift import check_for_errors
+from dotenv import load_dotenv
 
+load_dotenv()
 date = datetime.today().strftime('%d-%m-%Y')
 FILE = f'result_{date}.csv000'
 
@@ -17,10 +19,13 @@ REDSHIFT_TO_CSV = (
     f"UNLOAD ('SELECT * FROM {DBT_TABLE}')"
     f"TO 's3://{S3_BUCKET}/{FILE}'"
     f"IAM_ROLE '{IAM_ROLE}'"
-    "CSV parallel off ALLOWOVERWRITE;"
+    "CSV PARALLEL OFF ALLOWOVERWRITE HEADER;"
 )
 
 def main():
+    """
+    Converts Redshift table to csv, uploads it to S3 and downloads it 
+    """
     redshift_client = connect_to_redshift()
     statement_id = execute_statements(redshift_client)
     check_for_errors(redshift_client,statement_id)
