@@ -18,8 +18,10 @@ A data pipeline that extracts Reddit data for a Google Data Studio report, focus
 7. Visualizes transformed data with [Google Looker Studio](https://lookerstudio.google.com/)
 
 ## Result
-[Link](https://lookerstudio.google.com/reporting/fdfc7645-fbee-47cc-a06f-25a40b2a61fa)
+[Link](https://lookerstudio.google.com/reporting/c8571d66-d93f-4cbb-9bf4-92f5c0391c8d)
 ![result](./images/result.png)
+P.S. As to not incur further costs,data for this chart has been taken from csv file.
+As for how to convert table from redshift into csv file see it in this [file](https://github.com/Baitur5/reddit_api_elt/blob/master/extract_load/redshift_to_csv.py)
 
 
 
