@@ -87,3 +87,6 @@ check [this out](https://support.google.com/looker-studio/answer/6283323?hl=en)
 
 ## Contributions and Issues
 Contribute or report issues. Pull requests are welcome! Securely handle sensitive information like API keys and credentials.
+
+## Where inspiration came from:
+Thanks to this [repo](https://github.com/ABZ-Aaron/Reddit-API-Pipeline) for providing inspiration and clear docs to learn from
